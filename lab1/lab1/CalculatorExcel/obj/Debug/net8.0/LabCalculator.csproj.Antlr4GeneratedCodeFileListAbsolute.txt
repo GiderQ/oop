@@ -1,0 +1,6 @@
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorLexer.cs
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorParser.cs
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorListener.cs
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorBaseListener.cs
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorVisitor.cs
+D:\repository Github\oop\lab1\lab1\CalculatorExcel\obj\Debug\net8.0\LabCalculatorBaseVisitor.cs

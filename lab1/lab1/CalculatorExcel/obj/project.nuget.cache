@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9ED5g53QMxw=",
+  "dgSpecHash": "cPcuUoB/4NM=",
   "success": true,
-  "projectFilePath": "D:\\repository Github\\oop_lab1\\Calculator\\LabCalculator.csproj",
+  "projectFilePath": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\LabCalculator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\film1\\.nuget\\packages\\antlr4\\4.6.6\\antlr4.4.6.6.nupkg.sha512",
     "C:\\Users\\film1\\.nuget\\packages\\antlr4.codegenerator\\4.6.6\\antlr4.codegenerator.4.6.6.nupkg.sha512",

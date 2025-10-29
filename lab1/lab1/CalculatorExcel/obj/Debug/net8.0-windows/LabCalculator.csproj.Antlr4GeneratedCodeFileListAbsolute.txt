@@ -1,6 +1,0 @@
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorLexer.cs
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorParser.cs
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorListener.cs
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorBaseListener.cs
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorVisitor.cs
-D:\repository Github\oop_lab1\Calculator\obj\Debug\net8.0-windows\LabCalculatorBaseVisitor.cs

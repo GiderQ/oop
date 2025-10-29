@@ -3,19 +3,20 @@ using Microsoft.Maui.Controls.Compatibility;
 using System;
 using System.Collections.Generic;
 using Grid = Microsoft.Maui.Controls.Grid;
+using LabCalculator;
 
 namespace MyExcelMAUIApp
 {
     public partial class MainPage : ContentPage
     {
-        const int CountColumn = 20; // кількість стовпчиків (A to Z)
-        const int CountRow = 50; // кількість рядків
+        const int CountColumn = 5;
+        const int CountRow = 5;
         public MainPage()
         {
             InitializeComponent();
             CreateGrid();
         }
-        //створення таблиці
+
         private void CreateGrid()
         {
             AddColumnsAndColumnLabels();
@@ -23,7 +24,6 @@ namespace MyExcelMAUIApp
         }
         private void AddColumnsAndColumnLabels()
         {
-            // Додати стовпці та підписи для стовпців
             for (int col = 0; col < CountColumn + 1; col++)
             {
                 grid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -85,14 +85,31 @@ namespace MyExcelMAUIApp
             return columnName;
         }
         // викликається, коли користувач вийде зі зміненої клітинки(втратить фокус)
-        private void Entry_Unfocused(object sender, FocusEventArgs e)
+        private void Entry_Unfocused(object? sender, FocusEventArgs e)
         {
-            var entry = (Entry)sender;
+            var entry = (Entry)sender!;
             var row = Grid.GetRow(entry) - 1;
             var col = Grid.GetColumn(entry) - 1;
-            var content = entry.Text;
-            // Додайте додаткову логіку, яка виконується при виході зі зміненої клітинки
+            var content = entry.Text?.Trim();
+
+            if (!string.IsNullOrEmpty(content))
+            {
+                try
+                {
+                    bool result = Calculator.Evaluate(content);
+                    entry.TextColor = result ? Colors.Green : Colors.Red;
+                    entry.Text = result.ToString(); // "True" або "False"
+                }
+                catch (Exception ex)
+                {
+                    entry.TextColor = Colors.OrangeRed;
+                    entry.Text = "Error";
+                    Console.WriteLine($"Помилка: {ex.GetType().Name} — {ex.Message}");
+                }
+            }
         }
+
+
         private void CalculateButton_Clicked(object sender, EventArgs e)
         {
             // Обробка кнопки "Порахувати"

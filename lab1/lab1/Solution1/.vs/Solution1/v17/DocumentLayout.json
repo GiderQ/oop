@@ -1,0 +1,132 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\repository Github\\oop\\lab1\\lab1\\Solution1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9D189403-2F81-272B-234A-CF66546CCCFD}|..\\MyExcelMAUIApp\\MyExcelMAUIApp.csproj|d:\\repository github\\oop\\lab1\\lab1\\myexcelmauiapp\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D189403-2F81-272B-234A-CF66546CCCFD}|..\\MyExcelMAUIApp\\MyExcelMAUIApp.csproj|d:\\repository github\\oop\\lab1\\lab1\\myexcelmauiapp\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D189403-2F81-272B-234A-CF66546CCCFD}|..\\MyExcelMAUIApp\\MyExcelMAUIApp.csproj|d:\\repository github\\oop\\lab1\\lab1\\myexcelmauiapp\\throwexceptionerrorlistener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D189403-2F81-272B-234A-CF66546CCCFD}|..\\MyExcelMAUIApp\\MyExcelMAUIApp.csproj|d:\\repository github\\oop\\lab1\\lab1\\myexcelmauiapp\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EC8951-6A29-DA35-CA11-A2273FB5B550}|..\\CalculatorExcel\\LabCalculator.csproj|d:\\repository github\\oop\\lab1\\lab1\\calculatorexcel\\labcalculatorvisitor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EC8951-6A29-DA35-CA11-A2273FB5B550}|..\\CalculatorExcel\\LabCalculator.csproj|d:\\repository github\\oop\\lab1\\lab1\\calculatorexcel\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63EC8951-6A29-DA35-CA11-A2273FB5B550}|..\\CalculatorExcel\\LabCalculator.csproj|d:\\repository github\\oop\\lab1\\lab1\\calculatorexcel\\labcalculator.g4||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ThrowExceptionErrorListener.cs",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\ThrowExceptionErrorListener.cs",
+              "RelativeDocumentMoniker": "..\\MyExcelMAUIApp\\ThrowExceptionErrorListener.cs",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\ThrowExceptionErrorListener.cs",
+              "RelativeToolTip": "..\\MyExcelMAUIApp\\ThrowExceptionErrorListener.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:49:21.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MainPage.xaml",
+              "RelativeDocumentMoniker": "..\\MyExcelMAUIApp\\MainPage.xaml",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MainPage.xaml",
+              "RelativeToolTip": "..\\MyExcelMAUIApp\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-29T20:49:12.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "..\\MyExcelMAUIApp\\MauiProgram.cs",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MauiProgram.cs",
+              "RelativeToolTip": "..\\MyExcelMAUIApp\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:48:56.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LabCalculator.g4",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\LabCalculator.g4",
+              "RelativeDocumentMoniker": "..\\CalculatorExcel\\LabCalculator.g4",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\LabCalculator.g4",
+              "RelativeToolTip": "..\\CalculatorExcel\\LabCalculator.g4",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-29T17:21:49.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "..\\MyExcelMAUIApp\\MainPage.xaml.cs",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\MyExcelMAUIApp\\MainPage.xaml.cs",
+              "RelativeToolTip": "..\\MyExcelMAUIApp\\MainPage.xaml.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAA4wGgAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T17:08:17.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Calculator.cs",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\Calculator.cs",
+              "RelativeDocumentMoniker": "..\\CalculatorExcel\\Calculator.cs",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\Calculator.cs",
+              "RelativeToolTip": "..\\CalculatorExcel\\Calculator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T17:06:08.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LabCalculatorVisitor.cs",
+              "DocumentMoniker": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\LabCalculatorVisitor.cs",
+              "RelativeDocumentMoniker": "..\\CalculatorExcel\\LabCalculatorVisitor.cs",
+              "ToolTip": "D:\\repository Github\\oop\\lab1\\lab1\\CalculatorExcel\\LabCalculatorVisitor.cs",
+              "RelativeToolTip": "..\\CalculatorExcel\\LabCalculatorVisitor.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAYwHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T16:58:52.99Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
