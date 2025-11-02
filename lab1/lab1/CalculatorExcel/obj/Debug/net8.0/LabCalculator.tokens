@@ -14,7 +14,6 @@ NUMBER=13
 LPAREN=14
 RPAREN=15
 WS=16
-OP_MUL=17
 'mod'=1
 'div'=2
 '+'=3

@@ -7,10 +7,13 @@ using LabCalculator;
 
 namespace MyExcelMAUIApp
 {
+
     public partial class MainPage : ContentPage
     {
-        const int CountColumn = 5;
-        const int CountRow = 5;
+        private int CountColumn = 5;
+        private int CountRow = 5;
+        private CellManager cellManager = new();
+
         public MainPage()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace MyExcelMAUIApp
         private void CreateGrid()
         {
             AddColumnsAndColumnLabels();
+            grid.RowDefinitions.Add(new RowDefinition());
             AddRowsAndCellEntries();
         }
         private void AddColumnsAndColumnLabels()
@@ -43,11 +47,10 @@ namespace MyExcelMAUIApp
         }
         private void AddRowsAndCellEntries()
         {
-            // Додати рядки, підписи для рядків та комірки
             for (int row = 0; row < CountRow; row++)
             {
                 grid.RowDefinitions.Add(new RowDefinition());
-                // Додати підпис для номера рядка
+
                 var label = new Label
                 {
                     Text = (row + 1).ToString(),
@@ -57,7 +60,7 @@ namespace MyExcelMAUIApp
                 Grid.SetRow(label, row + 1);
                 Grid.SetColumn(label, 0);
                 grid.Children.Add(label);
-                // Додати комірки (Entry) для вмісту
+
                 for (int col = 0; col < CountColumn; col++)
                 {
                     var entry = new Entry
@@ -66,13 +69,51 @@ namespace MyExcelMAUIApp
                         VerticalOptions = LayoutOptions.Center,
                         HorizontalOptions = LayoutOptions.Center
                     };
-                    entry.Unfocused += Entry_Unfocused; // обробник події Unfocused
+
+                    entry.Focused += Entry_Focused;
+                    entry.Unfocused += Entry_Unfocused;
+
                     Grid.SetRow(entry, row + 1);
                     Grid.SetColumn(entry, col + 1);
                     grid.Children.Add(entry);
                 }
             }
         }
+
+        private void AddColumnButton_Clicked(object sender, EventArgs e)
+        {
+            CountColumn++;
+            grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+            var label = new Label
+            {
+                Text = GetColumnName(CountColumn),
+                VerticalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.Center
+            };
+            Grid.SetRow(label, 0);
+            Grid.SetColumn(label, CountColumn);
+            grid.Children.Add(label);
+
+            for (int row = 0; row < CountRow; row++)
+            {
+                var entry = new Entry
+                {
+                    Text = "",
+                    VerticalOptions = LayoutOptions.Center,
+                    HorizontalOptions = LayoutOptions.Center
+                };
+
+                entry.Focused += Entry_Focused;
+                entry.Unfocused += Entry_Unfocused;
+
+                Grid.SetRow(entry, row + 1);
+                Grid.SetColumn(entry, CountColumn);
+                grid.Children.Add(entry);
+            }
+        }
+
+
         private string GetColumnName(int colIndex)
         {
             int dividend = colIndex;
@@ -84,21 +125,28 @@ namespace MyExcelMAUIApp
             }
             return columnName;
         }
-        // викликається, коли користувач вийде зі зміненої клітинки(втратить фокус)
         private void Entry_Unfocused(object? sender, FocusEventArgs e)
         {
             var entry = (Entry)sender!;
             var row = Grid.GetRow(entry) - 1;
             var col = Grid.GetColumn(entry) - 1;
+            var cellName = $"{GetColumnName(col + 1)}{row + 1}";
             var content = entry.Text?.Trim();
-
+            
             if (!string.IsNullOrEmpty(content))
             {
                 try
                 {
-                    bool result = Calculator.Evaluate(content);
-                    entry.TextColor = result ? Colors.Green : Colors.Red;
-                    entry.Text = result.ToString(); // "True" або "False"
+                    cellManager.SetExpression(cellName, content);
+                    double result = cellManager.GetValue(cellName);
+
+                    entry.TextColor = double.IsNaN(result) ? Colors.OrangeRed
+                                  : result != 0.0 ? Colors.Green
+                                  : Colors.Red;
+
+                    entry.Text = cellManager.GetDisplayText(cellName);
+
+                   
                 }
                 catch (Exception ex)
                 {
@@ -107,68 +155,53 @@ namespace MyExcelMAUIApp
                     Console.WriteLine($"Помилка: {ex.GetType().Name} — {ex.Message}");
                 }
             }
+            else
+            {
+                entry.Text = "";
+            }
         }
 
+        private void Entry_Focused(object? sender, FocusEventArgs e)
+        {
+            var entry = (Entry)sender!;
+            int row = Grid.GetRow(entry) - 1;
+            int col = Grid.GetColumn(entry) - 1;
 
-        private void CalculateButton_Clicked(object sender, EventArgs e)
-        {
-            // Обробка кнопки "Порахувати"
+            if (row >= 0 && col >= 0)
+            {
+                string cellName = $"{GetColumnName(col + 1)}{row + 1}";
+                entry.Text = cellManager.GetExpression(cellName);
+            }
         }
-        private void SaveButton_Clicked(object sender, EventArgs e)
+
+        private async void ExitButton_Clicked(object sender, EventArgs e)
         {
-            // Обробка кнопки "Зберегти"
-        }
-        private void ReadButton_Clicked(object sender, EventArgs e)
-        {
-            // Обробка кнопки "Прочитати"
-        }
-        private async void ExitButton_Clicked(object sender, EventArgs
-       e)
-        {
-            bool answer = await DisplayAlert("Підтвердження", "Видійсно хочете вийти ? ", "Так", "Ні");
+            bool answer = await DisplayAlert("Підтвердження", "Ви дійсно хочете вийти ? ", "Так", "Ні");
             if (answer)
             {
                 System.Environment.Exit(0);
             }
         }
-        private async void HelpButton_Clicked(object sender,
-       EventArgs e)
+        private async void HelpButton_Clicked(object sender, EventArgs e)
         {
             await DisplayAlert("Довідка", "Лабораторна робота 1. Варіант 60. Виконав Давиденко Ярослав", "OK");
-        }
-        private void DeleteRowButton_Clicked(object sender, EventArgs
-       e)
-        {
-            if (grid.RowDefinitions.Count > 1)
-            {
-                int lastRowIndex = grid.RowDefinitions.Count - 1;
-                grid.RowDefinitions.RemoveAt(lastRowIndex);
-                grid.Children.RemoveAt(lastRowIndex * (CountColumn +
-               1)); // Remove label
-                for (int col = 0; col < CountColumn; col++)
-                {
-                    grid.Children.RemoveAt((lastRowIndex * CountColumn)
-                   + col + 1); // Remove entry
-                }
-            }
         }
 
         private void AddRowButton_Clicked(object sender, EventArgs e)
         {
-            int newRow = grid.RowDefinitions.Count;
-            // Add a new row definition
+            CountRow++;
             grid.RowDefinitions.Add(new RowDefinition());
-            // Add label for the row number
+
             var label = new Label
             {
-                Text = newRow.ToString(),
+                Text = CountRow.ToString(),
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center
             };
-            Grid.SetRow(label, newRow);
+            Grid.SetRow(label, CountRow);
             Grid.SetColumn(label, 0);
             grid.Children.Add(label);
-            // Add entry cells for the new row
+
             for (int col = 0; col < CountColumn; col++)
             {
                 var entry = new Entry
@@ -177,11 +210,18 @@ namespace MyExcelMAUIApp
                     VerticalOptions = LayoutOptions.Center,
                     HorizontalOptions = LayoutOptions.Center
                 };
+
+                entry.Focused += Entry_Focused;
                 entry.Unfocused += Entry_Unfocused;
-                Grid.SetRow(entry, newRow);
+
+                Grid.SetRow(entry, CountRow);
                 Grid.SetColumn(entry, col + 1);
                 grid.Children.Add(entry);
             }
         }
+
+
+
+
     }
 }

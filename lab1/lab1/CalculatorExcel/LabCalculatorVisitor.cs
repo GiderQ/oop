@@ -49,10 +49,12 @@ class LabCalculatorVisitor : LabCalculatorBaseVisitor<double>
         double right = Visit(context.right);
         return (left != 0.0 || right != 0.0) ? 1.0 : 0.0;
     }
+
     public override double VisitBoolExpr(LabCalculatorParser.BoolExprContext context)
     {
         return context.GetText() == "true" ? 1.0 : 0.0;
     }
+
     public override double VisitAddOperand(LabCalculatorParser.AddOperandContext context)
     {
         double left = Visit(context.expression(0));
@@ -65,13 +67,6 @@ class LabCalculatorVisitor : LabCalculatorBaseVisitor<double>
         double left = Visit(context.expression(0));
         double right = Visit(context.expression(1));
         return left - right;
-    }
-
-    public override double VisitMulOperand(LabCalculatorParser.MulOperandContext context)
-    {
-        double left = Visit(context.expression(0));
-        double right = Visit(context.expression(1));
-        return left * right;
     }
 
     public override double VisitDivOperand(LabCalculatorParser.DivOperandContext context)
@@ -87,6 +82,7 @@ class LabCalculatorVisitor : LabCalculatorBaseVisitor<double>
         double right = Visit(context.expression(1));
         return right != 0 ? left % right : 0.0;
     }
+
     public override double VisitAtomNumber(LabCalculatorParser.AtomNumberContext context)
     {
         return double.Parse(context.GetText());
@@ -97,9 +93,9 @@ class LabCalculatorVisitor : LabCalculatorBaseVisitor<double>
         return context.GetText() == "true" ? 1.0 : 0.0;
     }
 
-    public override double VisitAtomParenthesized(LabCalculatorParser.AtomParenthesizedContext context)
+    public override double VisitParenthesizedExpr(LabCalculatorParser.ParenthesizedExprContext context)
     {
-        return Visit(context.expression());
+        return Visit(context.logicExpression());
     }
 
     public override double VisitUnaryPlus(LabCalculatorParser.UnaryPlusContext context)
@@ -112,5 +108,26 @@ class LabCalculatorVisitor : LabCalculatorBaseVisitor<double>
         return -Visit(context.expression());
     }
 
+    public void SetContext(Dictionary<string, double> context)
+    {
+        tableIdentifier = context;
+    }
+
+    public override double VisitAtomParenthesized(LabCalculatorParser.AtomParenthesizedContext context)
+    {
+        return Visit(context.expression());
+    }
+
+    public override double VisitAtomIdentifier(LabCalculatorParser.AtomIdentifierContext context)
+    {
+        string name = context.IDENTIFIER().GetText();
+
+        if (!tableIdentifier.TryGetValue(name, out var value))
+        {
+            return double.NaN;
+        }
+
+        return value;
+    }
 
 }

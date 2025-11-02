@@ -8,7 +8,7 @@
     Title="MyExcelMAUIApp">
 
     <ShellContent
-        Title="Home"
+        Title="Lab1 Excel"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

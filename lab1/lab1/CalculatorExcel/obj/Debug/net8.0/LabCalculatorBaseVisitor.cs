@@ -71,18 +71,6 @@ public partial class LabCalculatorBaseVisitor<Result> : AbstractParseTreeVisitor
 	public virtual Result VisitUnaryPlus([NotNull] LabCalculatorParser.UnaryPlusContext context) { return VisitChildren(context); }
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>MulOperand</c>
-	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitMulOperand([NotNull] LabCalculatorParser.MulOperandContext context) { return VisitChildren(context); }
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>UnaryMinus</c>
 	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
 	/// <para>
@@ -165,6 +153,18 @@ public partial class LabCalculatorBaseVisitor<Result> : AbstractParseTreeVisitor
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	public virtual Result VisitCompareExpr([NotNull] LabCalculatorParser.CompareExprContext context) { return VisitChildren(context); }
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>ArithmeticExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.logicExpression"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitArithmeticExpr([NotNull] LabCalculatorParser.ArithmeticExprContext context) { return VisitChildren(context); }
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>ParenthesizedExpr</c>

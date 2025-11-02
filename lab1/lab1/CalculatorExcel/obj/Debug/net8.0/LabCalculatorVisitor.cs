@@ -57,14 +57,6 @@ public interface ILabCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	Result VisitUnaryPlus([NotNull] LabCalculatorParser.UnaryPlusContext context);
 
 	/// <summary>
-	/// Visit a parse tree produced by the <c>MulOperand</c>
-	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitMulOperand([NotNull] LabCalculatorParser.MulOperandContext context);
-
-	/// <summary>
 	/// Visit a parse tree produced by the <c>UnaryMinus</c>
 	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
 	/// </summary>
@@ -119,6 +111,14 @@ public interface ILabCalculatorVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitCompareExpr([NotNull] LabCalculatorParser.CompareExprContext context);
+
+	/// <summary>
+	/// Visit a parse tree produced by the <c>ArithmeticExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.logicExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitArithmeticExpr([NotNull] LabCalculatorParser.ArithmeticExprContext context);
 
 	/// <summary>
 	/// Visit a parse tree produced by the <c>ParenthesizedExpr</c>

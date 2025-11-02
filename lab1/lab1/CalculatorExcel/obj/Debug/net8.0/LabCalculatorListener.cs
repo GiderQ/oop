@@ -71,19 +71,6 @@ public interface ILabCalculatorListener : IParseTreeListener {
 	void ExitUnaryPlus([NotNull] LabCalculatorParser.UnaryPlusContext context);
 
 	/// <summary>
-	/// Enter a parse tree produced by the <c>MulOperand</c>
-	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterMulOperand([NotNull] LabCalculatorParser.MulOperandContext context);
-	/// <summary>
-	/// Exit a parse tree produced by the <c>MulOperand</c>
-	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitMulOperand([NotNull] LabCalculatorParser.MulOperandContext context);
-
-	/// <summary>
 	/// Enter a parse tree produced by the <c>UnaryMinus</c>
 	/// labeled alternative in <see cref="LabCalculatorParser.expression"/>.
 	/// </summary>
@@ -173,6 +160,19 @@ public interface ILabCalculatorListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitCompareExpr([NotNull] LabCalculatorParser.CompareExprContext context);
+
+	/// <summary>
+	/// Enter a parse tree produced by the <c>ArithmeticExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.logicExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterArithmeticExpr([NotNull] LabCalculatorParser.ArithmeticExprContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>ArithmeticExpr</c>
+	/// labeled alternative in <see cref="LabCalculatorParser.logicExpression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitArithmeticExpr([NotNull] LabCalculatorParser.ArithmeticExprContext context);
 
 	/// <summary>
 	/// Enter a parse tree produced by the <c>ParenthesizedExpr</c>

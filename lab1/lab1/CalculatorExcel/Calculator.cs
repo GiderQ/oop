@@ -9,7 +9,7 @@ namespace LabCalculator
 {
     public static class Calculator
     {
-        public static bool Evaluate(string expression)
+        public static double Evaluate(string expression, Dictionary<string, double>? context = null)
         {
             var inputStream = new AntlrInputStream(expression);
             var lexer = new LabCalculatorLexer(inputStream);
@@ -27,11 +27,10 @@ namespace LabCalculator
                 throw new ArgumentException("Синтаксична помилка у виразі");
 
             var visitor = new LabCalculatorVisitor();
-            double result = visitor.Visit(tree);
-            return result != 0.0;
+            if (context != null)
+                visitor.SetContext(context);
+
+            return visitor.Visit(tree);
         }
-
-
-
     }
 }
